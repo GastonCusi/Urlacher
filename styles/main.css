@@ -1,0 +1,576 @@
+body, html {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #f0f0f0;
+}
+
+header {
+  background-color: #004080;
+  color: white;
+  padding: 0 1rem;
+}
+header .navbar-brand {
+  display: flex;
+  align-items: center;
+}
+header .navbar-brand .logo-text {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+  color: #ffffff;
+}
+header .navbar-brand .logo-image {
+  height: 1.5rem;
+  width: auto;
+}
+
+.navbar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  background: rgba(0, 64, 128, 0.8);
+  transition: background-color 0.3s, background 0.3s;
+  font-size: 1.1rem;
+}
+.navbar .navbar-nav .nav-link,
+.navbar .navbar-nav .dropdown-toggle {
+  color: #ffffff !important;
+}
+.navbar .navbar-nav .nav-link:hover,
+.navbar .navbar-nav .dropdown-toggle:hover {
+  background-color: #00274d;
+}
+.navbar .dropdown-menu {
+  background-color: #004080;
+  border: none;
+}
+.navbar .dropdown-menu .dropdown-item {
+  color: #ffffff;
+}
+.navbar .dropdown-menu .dropdown-item:hover {
+  background-color: #336699;
+}
+
+.container-fluid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-toggler {
+  order: 2;
+}
+
+.navbar-collapse {
+  order: 3;
+}
+
+.navbar-brand {
+  order: 1;
+  margin-right: auto;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+  justify-content: center;
+}
+.nav-links li {
+  position: relative;
+}
+.nav-links li a {
+  color: #ffffff;
+  padding: 1rem;
+  display: block;
+  text-decoration: none;
+}
+.nav-links li a:hover {
+  background-color: #00274d;
+}
+.nav-links li.dropdown:hover .dropdown-content {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: rgba(0, 64, 128, 0.8);
+  min-width: 160px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.dropdown-content li a {
+  padding: 1rem;
+  color: #ffffff;
+}
+.dropdown-content li a:hover {
+  background-color: #4080bf;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+  }
+  .navbar .nav-links {
+    flex-direction: column;
+  }
+  .navbar .nav-links li {
+    width: 100%;
+  }
+  .navbar .dropdown-content {
+    position: static;
+  }
+  .navbar .dropdown-content li {
+    width: 100%;
+  }
+}
+main {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.form-container {
+  background-color: #FFFFFF;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.form-container form .form-group, .form-container form .form-row {
+  margin-bottom: 1.5rem;
+}
+.form-container form .form-control {
+  border: 1px solid #004080;
+}
+.form-container form .form-control:focus {
+  border-color: #00274d;
+  box-shadow: 0 0 5px rgba(0, 64, 128, 0.5);
+}
+.form-container form button {
+  background-color: #004080;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.25rem;
+  transition: background-color 0.3s;
+}
+.form-container form button:hover {
+  background-color: #00274d;
+}
+
+.artist-section {
+  background-color: #99ccff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.artist-section h2 {
+  color: #004080;
+}
+.artist-section .artist-description {
+  color: #000;
+}
+.artist-section .row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.artist-section .col-md-4, .artist-section .col-md-8 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.artist-section img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.footer .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer .social-icons {
+  display: flex;
+  gap: 20px;
+  margin-left: auto;
+}
+.footer .social-icons a {
+  color: #ffffff;
+  font-size: 1.5rem;
+}
+.footer .social-icons a:hover {
+  color: #ccc;
+}
+.footer .company-name {
+  margin-right: auto;
+}
+.footer p {
+  margin: 0;
+  color: #ffffff;
+}
+
+button {
+  background-color: #004080;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+button:hover {
+  background-color: #00274d;
+}
+
+.navbar.scrolled {
+  background-color: rgba(0, 64, 128, 0.95);
+}
+
+.navbar {
+  background-color: #004080;
+}
+.navbar .navbar-brand {
+  display: flex;
+  align-items: center;
+}
+.navbar .navbar-brand .logo-text {
+  font-size: 1.5rem;
+  color: #fff;
+  margin-right: 0.5rem;
+}
+.navbar .navbar-brand .logo-image {
+  width: 40px;
+  height: 40px;
+}
+.navbar .nav-link {
+  color: #fff;
+}
+.navbar .nav-link:hover {
+  color: #ccc;
+}
+.navbar .navbar-toggler-icon {
+  filter: invert(100%);
+}
+
+.navbar .dropdown-menu {
+  background-color: #004080;
+  border: none;
+}
+.navbar .dropdown-menu .dropdown-item {
+  color: #ffffff;
+}
+.navbar .dropdown-menu .dropdown-item:hover {
+  background-color: #336699;
+}
+
+.footer {
+  background-color: #343a40;
+  color: #fff;
+  padding: 1rem 0;
+}
+
+.home-page .main-content {
+  padding: 2rem;
+  text-align: center;
+}
+.home-page .main-content h1 {
+  font-size: 2.5rem;
+  color: #333;
+}
+.home-page .main-content p {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.contact-page .form-container {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.contact-page .form-container h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.contact-page .form-container p {
+  margin-bottom: 1rem;
+}
+.contact-page .form-container .form-group {
+  margin-bottom: 1rem;
+}
+.contact-page .form-container .btn-primary {
+  background-color: #004080;
+  border: none;
+}
+.contact-page .form-container .btn-primary:hover {
+  background-color: #336699;
+}
+.contact-page .artist-section {
+  background-color: #f8f9fa;
+  padding: 2rem;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.contact-page .artist-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+.contact-page .artist-section .artist-description {
+  color: #000;
+}
+.contact-page .artist-section .img-fluid {
+  border-radius: 5px;
+}
+
+.main-image img {
+  width: 100%;
+  height: 65vh;
+  object-fit: cover;
+  object-position: top;
+}
+
+.about-page {
+  background: url("images/Imagen 1.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+.about-page .text-center {
+  width: 100%;
+  max-width: 1920px;
+  max-height: 1080px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.about-page h1, .about-page h2 {
+  color: #004080;
+}
+.about-page p {
+  color: #000;
+  margin-bottom: 1rem;
+}
+.about-page .bg-white {
+  background-color: transparent;
+}
+
+.collection-page .collection-container {
+  background-color: #FFFFFF;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.collection-page .collection-container h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.collection-page .collection-container p {
+  margin-bottom: 1rem;
+}
+.collection-page .collection-container .card {
+  border: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+.collection-page .collection-container .card:hover {
+  transform: translateY(-5px);
+}
+.collection-page .collection-container .card .card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+.collection-page .collection-container .card .card-body h5 {
+  font-size: 1.25rem;
+  color: #004080;
+}
+.collection-page .collection-container .card .card-body p {
+  color: #666;
+}
+
+.available-works-page .available-works-container {
+  background-color: #FFFFFF;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.available-works-page .available-works-container h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.available-works-page .available-works-container p {
+  margin-bottom: 1rem;
+}
+.available-works-page .available-works-container .card {
+  border: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+.available-works-page .available-works-container .card:hover {
+  transform: translateY(-5px);
+}
+.available-works-page .available-works-container .card .card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+.available-works-page .available-works-container .card .card-body h5 {
+  font-size: 1.25rem;
+  color: #004080;
+}
+.available-works-page .available-works-container .card .card-body p {
+  color: #666;
+}
+
+.spatula-page .spatula-container {
+  background-color: #FFFFFF;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.spatula-page .spatula-container h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.spatula-page .spatula-container p {
+  margin-bottom: 1rem;
+}
+.spatula-page .spatula-container .card {
+  border: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+.spatula-page .spatula-container .card:hover {
+  transform: translateY(-5px);
+}
+.spatula-page .spatula-container .card .card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+.spatula-page .spatula-container .card .card-body h5 {
+  font-size: 1.25rem;
+  color: #004080;
+}
+.spatula-page .spatula-container .card .card-body p {
+  color: #666;
+}
+
+.portraits-page .portraits-container {
+  background-color: #FFFFFF;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.portraits-page .portraits-container h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.portraits-page .portraits-container p {
+  margin-bottom: 1rem;
+}
+.portraits-page .portraits-container .card {
+  border: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+.portraits-page .portraits-container .card:hover {
+  transform: translateY(-5px);
+}
+.portraits-page .portraits-container .card .card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+.portraits-page .portraits-container .card .card-body h5 {
+  font-size: 1.25rem;
+  color: #004080;
+}
+.portraits-page .portraits-container .card .card-body p {
+  color: #666;
+}
+
+.small-format-page .small-format-container {
+  background-color: #FFFFFF;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.small-format-page .small-format-container h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.small-format-page .small-format-container p {
+  margin-bottom: 1rem;
+}
+.small-format-page .small-format-container .card {
+  border: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+.small-format-page .small-format-container .card:hover {
+  transform: translateY(-5px);
+}
+.small-format-page .small-format-container .card .card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+.small-format-page .small-format-container .card .card-body h5 {
+  font-size: 1.25rem;
+  color: #004080;
+}
+.small-format-page .small-format-container .card .card-body p {
+  color: #666;
+}
+
+.nudes-page .nudes-container {
+  background-color: #FFFFFF;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.nudes-page .nudes-container h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.nudes-page .nudes-container p {
+  margin-bottom: 1rem;
+}
+.nudes-page .nudes-container .card {
+  border: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+.nudes-page .nudes-container .card:hover {
+  transform: translateY(-5px);
+}
+.nudes-page .nudes-container .card .card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+.nudes-page .nudes-container .card .card-body h5 {
+  font-size: 1.25rem;
+  color: #004080;
+}
+.nudes-page .nudes-container .card .card-body p {
+  color: #666;
+}
+
+/*# sourceMappingURL=main.css.map */

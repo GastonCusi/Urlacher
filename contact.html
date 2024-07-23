@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contáctame - Urlacher</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body class="contact-page d-flex flex-column min-vh-100">
+    <header class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <span class="logo-text mr-2">Urlacher</span>
+                <img src="images/logo.png" alt="Logo" class="logo-image">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">Galería</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="coleccion-privada.html">Colección Privada</a>
+                            <a class="dropdown-item" href="obras-disponibles.html">Obras Disponibles</a>
+                            <a class="dropdown-item" href="espatula.html">Espátula</a>
+                            <a class="dropdown-item" href="retratos.html">Retratos</a>
+                            <a class="dropdown-item" href="pequeno-formato.html">Pequeño Formato</a>
+                            <a class="dropdown-item" href="desnudos.html">Desnudos</a>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">Sobre mí</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contáctame</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <main class="container mt-5 pt-5 flex-grow-1">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-10">
+                <div class="form-container bg-white p-4 rounded shadow-sm mb-5">
+                    <h1>Contáctame</h1>
+                    <p>Si tienes alguna pregunta o deseas más información sobre mis obras, por favor completa el siguiente formulario:</p>
+                    <form class="needs-validation" novalidate action="send_mail.php" method="post">
+                        <div class="form-row">
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">Nombre</label>
+                                <input type="text" class="form-control" id="validationCustom01" placeholder="Nombre" name="nombre" required>
+                                <div class="invalid-feedback">
+                                    Por favor, ingrese su nombre.
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom02">Apellido</label>
+                                <input type="text" class="form-control" id="validationCustom02" placeholder="Apellido" name="apellido" required>
+                                <div class="invalid-feedback">
+                                    Por favor, ingrese su apellido.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom03">Correo Electrónico</label>
+                                <input type="email" class="form-control" id="validationCustom03" placeholder="Correo Electrónico" name="email" required>
+                                <div class="invalid-feedback">
+                                    Por favor, ingrese un correo electrónico válido.
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom04">Teléfono</label>
+                                <input type="tel" class="form-control" id="validationCustom04" placeholder="Teléfono" name="telefono" required>
+                                <div class="invalid-feedback">
+                                    Por favor, ingrese un número de teléfono válido.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="validationCustom05">Mensaje</label>
+                            <textarea class="form-control" id="validationCustom05" rows="3" name="mensaje" required></textarea>
+                            <div class="invalid-feedback">
+                                Por favor, ingrese un mensaje.
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" type="submit">Enviar</button>
+                    </form>
+                </div>
+                <div class="artist-section bg-light p-4 rounded shadow-sm">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img src="images/Perfil.jpg" alt="Foto del Artista" class="img-fluid rounded">
+                        </div>
+                        <div class="col-md-8">
+                            <h2>Sobre el Artista</h2>
+                            <p class="artist-description">Nace el 30 de octubre de 1958 en Buenos Aires, Argentina, (65 años). Comienza a pintar en 1982 a los 24 años, es pintor autodidacta. Además de dedicarse a su obra personal es Pintor RETRATISTA, de Arte Sacro, Pintor de Vitrales y Grabador de papel moneda. Hoy con 42 años de oficio, trabaja incansablemente en la evolución de su obra en permanente cambio, explorando y experimentando nuevas fusiones dentro del interminable y bellísimo oficio de pintor. Da charlas, demostraciones, seminarios y clases regulares de dibujo y pintura.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer bg-dark text-white text-center py-3 mt-auto">
+        <div class="container d-flex justify-content-center align-items-center">
+            <div class="company-name mr-auto">NexuSites</div>
+            <!-- Cambié la clase del párrafo para alinearlo al centro -->
+            <p class="mb-0">&copy; 2024 Urlacher</p>
+            <div class="social-icons ml-auto">
+                <!-- Añadí los enlaces con los íconos de FontAwesome -->
+                <a href="https://www.facebook.com/urlacherarte?mibextid=qi2Omg&rdid=g6FMsA9eymGQv4wN&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2FrgRMxg3tUXAGtwd4%2F%3Fmibextid%3Dqi2Omg" target="_blank" class="text-white"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/hugourlacher_art/" target="_blank" class="text-white ml-3"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

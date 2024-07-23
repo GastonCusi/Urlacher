@@ -1,0 +1,719 @@
+// Variables para colores
+$primary-color: #004080; // Azul oscuro
+$secondary-color: #336699; // Azul intermedio
+$accent-color: #99ccff; // Azul claro
+$background-color: #f0f0f0; // Gris claro
+$footer-background-color: #003366; // Azul muy oscuro
+$font-stack: 'Helvetica Neue', Arial, sans-serif; // Fuente similar
+$navbar-background: rgba(0, 64, 128, 0.8); // Azul oscuro transparente para la barra de navegación
+$navbar-background-scrolled: rgba(0, 64, 128, 0.95); // Azul oscuro opaco cuando se hace scroll
+$navbar-text-color: #ffffff; // Letras blancas en la barra de navegación
+
+$navbar-bg-color: $primary-color; // Variable adicional para la barra de navegación y el menú desplegable
+$dropdown-bg-color: $navbar-bg-color;
+$dropdown-hover-bg-color: $secondary-color;
+$dropdown-text-color: $navbar-text-color;
+
+// Estilos generales
+body, html {
+    font-family: $font-stack;
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: $background-color; // Fondo gris claro
+}
+
+header {
+    background-color: $primary-color;
+    color: white;
+    padding: 0 1rem;
+    .navbar-brand {
+        display: flex;
+        align-items: center;
+        .logo-text {
+            font-size: 1.5rem;
+            margin-right: 0.5rem;
+            color: $navbar-text-color; // Letras blancas
+        }
+        .logo-image {
+            height: 1.5rem;
+            width: auto;
+        }
+    }
+}
+
+.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    background: $navbar-background;
+    transition: background-color 0.3s, background 0.3s;
+    font-size: 1.1rem; // Aumentar tamaño de letra
+
+    .navbar-nav .nav-link,
+    .navbar-nav .dropdown-toggle {
+        color: $navbar-text-color !important; // Letras blancas para enlaces y dropdowns
+        &:hover {
+            background-color: darken($primary-color, 10%);
+        }
+    }
+
+    .dropdown-menu {
+        background-color: $dropdown-bg-color;
+        border: none;
+
+        .dropdown-item {
+            color: $dropdown-text-color;
+
+            &:hover {
+                background-color: $dropdown-hover-bg-color;
+            }
+        }
+    }
+}
+
+.container-fluid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-toggler {
+    order: 2;
+}
+
+.navbar-collapse {
+    order: 3;
+}
+
+.navbar-brand {
+    order: 1;
+    margin-right: auto;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex: 1;
+    justify-content: center;
+    li {
+        position: relative;
+        a {
+            color: $navbar-text-color; // Letras blancas
+            padding: 1rem;
+            display: block;
+            text-decoration: none;
+            &:hover {
+                background-color: darken($primary-color, 10%);
+            }
+        }
+        &.dropdown:hover .dropdown-content {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: $navbar-background; // Mismo color que la barra de navegación
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    li {
+        a {
+            padding: 1rem;
+            color: $navbar-text-color; // Letras blancas en el menú desplegable
+            &:hover {
+                background-color: lighten($secondary-color, 10%);
+            }
+        }
+    }
+}
+
+// Estilos responsivos
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        .nav-links {
+            flex-direction: column;
+            li {
+                width: 100%;
+            }
+        }
+        .dropdown-content {
+            position: static;
+            li {
+                width: 100%;
+            }
+        }
+    }
+}
+
+main {
+    flex-grow: 1; // Permitir que el main crezca y ocupe el espacio disponible
+    text-align: center;
+}
+
+.form-container {
+    background-color: #FFFFFF;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    form {
+        .form-group, .form-row {
+            margin-bottom: 1.5rem;
+        }
+        .form-control {
+            border: 1px solid $primary-color;
+            &:focus {
+                border-color: darken($primary-color, 10%);
+                box-shadow: 0 0 5px rgba(0, 64, 128, 0.5);
+            }
+        }
+        button {
+            background-color: $primary-color;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1.25rem;
+            transition: background-color 0.3s;
+            &:hover {
+                background-color: darken($primary-color, 10%);
+            }
+        }
+    }
+}
+
+.artist-section {
+    background-color: $accent-color;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    h2 {
+        color: $primary-color;
+    }
+    .artist-description {
+        color: #000; // Texto en negro
+    }
+
+    .row {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .col-md-4, .col-md-8 {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+}
+
+.footer {
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .social-icons {
+        display: flex;
+        gap: 20px; // Aumenta el espacio entre los íconos
+        margin-left: auto;
+
+        a {
+            color: #ffffff; // Color blanco para los enlaces e íconos
+            font-size: 1.5rem; // Aumenta el tamaño de los íconos
+            &:hover {
+                color: #ccc; // Color de los enlaces al pasar el mouse
+            }
+        }
+    }
+    .company-name {
+        margin-right: auto;
+    }
+    p {
+        margin: 0;
+        color: #ffffff; // Letras blancas
+    }
+}
+
+
+
+
+
+button {
+    background-color: $primary-color;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+        background-color: darken($primary-color, 10%);
+    }
+}
+
+// Clase añadida cuando se hace scroll
+.navbar.scrolled {
+    background-color: $navbar-background-scrolled;
+}
+
+// Estilos específicos de la barra de navegación y el menú desplegable (añadidos)
+.navbar {
+    background-color: $navbar-bg-color;
+
+    .navbar-brand {
+        display: flex;
+        align-items: center;
+
+        .logo-text {
+            font-size: 1.5rem;
+            color: #fff;
+            margin-right: 0.5rem;
+        }
+
+        .logo-image {
+            width: 40px;
+            height: 40px;
+        }
+    }
+
+    .nav-link {
+        color: #fff;
+        &:hover {
+            color: #ccc;
+        }
+    }
+
+    .navbar-toggler-icon {
+        filter: invert(100%);
+    }
+}
+
+.navbar .dropdown-menu {
+    background-color: $dropdown-bg-color;
+    border: none;
+
+    .dropdown-item {
+        color: $dropdown-text-color;
+
+        &:hover {
+            background-color: $dropdown-hover-bg-color;
+        }
+    }
+}
+
+// Estilos para el footer
+.footer {
+    background-color: #343a40;
+    color: #fff;
+    padding: 1rem 0;
+}
+
+// Estilos para la página de inicio
+.home-page {
+    .main-content {
+        padding: 2rem;
+        text-align: center;
+
+        h1 {
+            font-size: 2.5rem;
+            color: #333;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #666;
+        }
+    }
+}
+
+// Estilos para la página de contacto
+.contact-page {
+    .form-container {
+        background-color: #fff;
+        padding: 2rem;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .btn-primary {
+            background-color: $navbar-bg-color;
+            border: none;
+
+            &:hover {
+                background-color: $dropdown-hover-bg-color;
+            }
+        }
+    }
+
+    .artist-section {
+        background-color: #f8f9fa;
+        padding: 2rem;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .artist-description {
+            color: #000; // Texto en negro
+        }
+
+        .img-fluid {
+            border-radius: 5px;
+        }
+    }
+}
+
+// Estilo para la imagen principal
+.main-image {
+    img {
+        width: 100%;
+        height: 65vh; // Ajusta la altura de la imagen a 65vh
+        object-fit: cover;
+        object-position: top; // Enfocar la parte superior de la imagen
+    }
+}
+
+// Estilos específicos para la página "Sobre mí"
+.about-page {
+    // Reemplaza 'url("/mnt/data/Imagen 1.jpg")' con la ruta correcta de tu imagen
+    background: url('images/Imagen 1.jpg') no-repeat center center fixed;
+    background-size: cover; // Ajustar la imagen para cubrir toda la pantalla
+
+    .text-center {
+        width: 100%; // Ancho del contenido al 100% del contenedor
+        max-width: 1920px; // Ancho máximo de 1920px
+        max-height: 1080px; // Altura máxima de 1080px
+        margin: 0 auto; // Centrar horizontalmente
+        padding: 2rem; // Añadir padding para separación
+        background-color: rgba(255, 255, 255, 0.8); // Fondo blanco semitransparente para mejorar la legibilidad
+    }
+
+    h1, h2 {
+        color: $primary-color; // Color del título y subtítulos
+    }
+
+    p {
+        color: #000; // Color del texto
+        margin-bottom: 1rem; // Espaciado inferior entre párrafos
+    }
+
+    .bg-white {
+        background-color: transparent; // Eliminar fondo blanco
+    }
+}
+
+// Estilos específicos para la página "Colección Privada"
+.collection-page {
+    .collection-container {
+        background-color: #FFFFFF;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        .card {
+            border: none;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+
+            &:hover {
+                transform: translateY(-5px);
+            }
+
+            .card-img-top {
+                height: 200px;
+                object-fit: cover;
+            }
+
+            .card-body {
+                h5 {
+                    font-size: 1.25rem;
+                    color: $primary-color;
+                }
+
+                p {
+                    color: #666;
+                }
+            }
+        }
+    }
+}
+
+// Estilos específicos para la página "Obras Disponibles"
+.available-works-page {
+    .available-works-container {
+        background-color: #FFFFFF;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        .card {
+            border: none;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+
+            &:hover {
+                transform: translateY(-5px);
+            }
+
+            .card-img-top {
+                height: 200px;
+                object-fit: cover;
+            }
+
+            .card-body {
+                h5 {
+                    font-size: 1.25rem;
+                    color: $primary-color;
+                }
+
+                p {
+                    color: #666;
+                }
+            }
+        }
+    }
+}
+
+// Estilos específicos para la página "Espátula"
+.spatula-page {
+    .spatula-container {
+        background-color: #FFFFFF;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        .card {
+            border: none;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+
+            &:hover {
+                transform: translateY(-5px);
+            }
+
+            .card-img-top {
+                height: 200px;
+                object-fit: cover;
+            }
+
+            .card-body {
+                h5 {
+                    font-size: 1.25rem;
+                    color: $primary-color;
+                }
+
+                p {
+                    color: #666;
+                }
+            }
+        }
+    }
+}
+
+// Estilos específicos para la página "Retratos"
+.portraits-page {
+    .portraits-container {
+        background-color: #FFFFFF;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        .card {
+            border: none;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+
+            &:hover {
+                transform: translateY(-5px);
+            }
+
+            .card-img-top {
+                height: 200px;
+                object-fit: cover;
+            }
+
+            .card-body {
+                h5 {
+                    font-size: 1.25rem;
+                    color: $primary-color;
+                }
+
+                p {
+                    color: #666;
+                }
+            }
+        }
+    }
+}
+
+// Estilos específicos para la página "Pequeño Formato"
+.small-format-page {
+    .small-format-container {
+        background-color: #FFFFFF;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        .card {
+            border: none;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+
+            &:hover {
+                transform: translateY(-5px);
+            }
+
+            .card-img-top {
+                height: 200px;
+                object-fit: cover;
+            }
+
+            .card-body {
+                h5 {
+                    font-size: 1.25rem;
+                    color: $primary-color;
+                }
+
+                p {
+                    color: #666;
+                }
+            }
+        }
+    }
+}
+
+// Estilos específicos para la página "Desnudos"
+.nudes-page {
+    .nudes-container {
+        background-color: #FFFFFF;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        .card {
+            border: none;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+
+            &:hover {
+                transform: translateY(-5px);
+            }
+
+            .card-img-top {
+                height: 200px;
+                object-fit: cover;
+            }
+
+            .card-body {
+                h5 {
+                    font-size: 1.25rem;
+                    color: $primary-color;
+                }
+
+                p {
+                    color: #666;
+                }
+            }
+        }
+    }
+}
